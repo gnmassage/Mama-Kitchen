@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="ka">
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>Mama Kitchen Tbilisi | შენი უკრაინული სახლის გემოები თბილისში</title>
+    <title>Mama Kitchen Tbilisi | Твій смак українського дому в Тбілісі</title>
     
     <!-- Local SEO & Metadata -->
-    <meta name="description" content="ნამდვილი უკრაინული სახლის კერძები თბილისში. ბორშჩი, ვარენიკები, სირნიკები და სიყვარულით დამზადებული სადილები. შეუკვეთე პირდაპირ Telegram-ში!">
-    <meta name="keywords" content="უკრაინული სამზარეულო თბილისი, სახლის საჭმლის მიტანა, ბორშჩი თბილისში, Ukrainian food delivery Tbilisi, доставка еды Тбилиси">
+    <meta name="description" content="Справжня українська домашня кухня в Тбілісі. Борщ, вареники, сирники та приготовані з любов'ю обіди. Замовляйте прямо в Telegram!">
+    <meta name="keywords" content="українська кухня Тбілісі, доставка домашньої їжі, борщ у Тбілісі, Ukrainian food delivery Tbilisi, доставка еды Тбилиси">
     <link rel="canonical" href="https://mama-kitchen-tbilisi.vercel.app">
     
     <!-- OpenGraph Social Cards -->
-    <meta property="og:title" content="Mama Kitchen Tbilisi | უკრაინული სახლის სამზარეულო">
-    <meta property="og:description" content="შენი უკრაინული სახლის გემოები თბილისში — სიყვარულით და ზრუნვით მომზადებული სადილები.">
+    <meta property="og:title" content="Mama Kitchen Tbilisi | Українська домашня кухня">
+    <meta property="og:description" content="Твій смак українського дому в Тбілісі — приготовані з любов'ю та турботою обіди.">
     <meta property="og:type" content="website">
 
     <!-- Structured Data (Schema.org SEO) -->
@@ -71,14 +71,13 @@
             transition: opacity 0.6s ease, visibility 0.6s ease;
         }
 
-        /* ლოგო ჩარჩოს გარეშე და 3-ჯერ შემცირებული ზომით */
         .splash-logo-img {
             width: 60vw;
             max-width: 400px;
             height: auto;
             border-radius: 0;
             object-fit: contain;
-            border: none; /* ჩარჩოს მოშორება */
+            border: none;
             box-shadow: none;
             margin-bottom: 20px;
             animation: pulseLogo 1.2s infinite alternate;
@@ -108,16 +107,37 @@
         /* Promo Bar */
         .promo-bar { background: var(--primary); color: white; text-align: center; padding: 8px 12px; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.2px; }
 
-        /* Header */
+        /* Header & Mobile Optimization */
         header { background: var(--surface); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.03); }
         .header-content { display: flex; justify-content: space-between; align-items: center; height: 64px; }
         .logo { display: flex; align-items: center; gap: 8px; text-decoration: none; color: var(--text-dark); font-weight: 800; font-size: 1.05rem; }
         .logo-avatar { width: 44px; height: 32px; border-radius: 0; background: var(--primary); color: white; display: flex; align-items: center; justify-content: center; flex-shrink: 0; overflow: hidden; border: 1px solid var(--border); }
         .logo-avatar img { width: 100%; height: 100%; object-fit: cover; }
         
-        .header-actions { display: flex; align-items: center; gap: 8px; }
-        .lang-switcher { display: flex; background: var(--bg-cream); border: 1px solid var(--border); border-radius: 20px; padding: 2px; }
-        .lang-btn { background: none; border: none; padding: 5px 8px; font-size: 0.75rem; font-weight: 700; cursor: pointer; border-radius: 16px; color: var(--text-muted); transition: all 0.2s; }
+        .header-actions { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+        
+        /* Language Switcher Container */
+        .lang-switcher { 
+            display: flex; 
+            background: var(--bg-cream); 
+            border: 1px solid var(--border); 
+            border-radius: 20px; 
+            padding: 2px;
+            flex-wrap: nowrap;
+        }
+        .lang-btn { 
+            background: none; 
+            border: none; 
+            padding: 5px 8px; 
+            font-size: 0.75rem; 
+            font-weight: 700; 
+            cursor: pointer; 
+            border-radius: 16px; 
+            color: var(--text-muted); 
+            transition: all 0.2s;
+            white-space: nowrap;
+            line-height: 1;
+        }
         .lang-btn.active { background: var(--primary); color: white; }
 
         .btn-header { background: #229ED9; color: white; padding: 6px 12px; border-radius: 30px; text-decoration: none; font-weight: 700; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
@@ -187,19 +207,24 @@
 
         footer { text-align: center; padding: 24px 0; color: var(--text-muted); font-size: 0.8rem; }
 
+        /* Mobile Adjustments */
         @media (max-width: 768px) {
             .hero-grid { grid-template-columns: 1fr; gap: 16px; }
             .hero-title { font-size: 1.65rem; }
             .info-grid { grid-template-columns: 1fr; gap: 8px; }
             .logo-text { display: none; }
-            .lang-btn { padding: 4px 6px; font-size: 0.7rem; }
+            
+            .header-actions { gap: 6px; }
+            .lang-switcher { padding: 1px; }
+            .lang-btn { padding: 4px 6px; font-size: 0.68rem; }
+            .btn-header { padding: 6px 10px; font-size: 0.75rem; }
             .splash-hook-uk { font-size: 1.2rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- 1.5-Second Intro Splash Screen with Logo -->
+    <!-- 1.5-Second Intro Splash Screen -->
     <div id="splashOverlay">
         <img src="logo.png" alt="Mama Kitchen Logo" class="splash-logo-img">
         <div class="splash-hook-uk">«Смак родинного тепла, що об'єднує серця в Тбілісі»</div>
@@ -208,7 +233,7 @@
 
     <!-- Promo Banner -->
     <div class="promo-bar" id="promoBar">
-        🎁 პირველ შეკვეთაზე საჩუქრად ტრადიციული უკრაინული კომპოტი!
+        🎁 Традиційний український компот у подарунок до 1-го замовлення!
     </div>
 
     <!-- Header -->
@@ -223,9 +248,9 @@
             
             <div class="header-actions">
                 <div class="lang-switcher">
-                    <button class="lang-btn active" onclick="setLanguage('ka', this)">GE</button>
+                    <button class="lang-btn" onclick="setLanguage('ka', this)">GE</button>
                     <button class="lang-btn" onclick="setLanguage('en', this)">EN</button>
-                    <button class="lang-btn" onclick="setLanguage('uk', this)">UK</button>
+                    <button class="lang-btn active" onclick="setLanguage('uk', this)">UK</button>
                     <button class="lang-btn" onclick="setLanguage('ru', this)">RU</button>
                 </div>
                 
@@ -240,17 +265,17 @@
     <section class="hero">
         <div class="container hero-grid">
             <div>
-                <h1 class="hero-title" id="heroTitle">შენი უკრაინული სახლის გემოები თბილისში 🇺🇦🇬🇪</h1>
-                <p class="hero-subtitle" id="heroSubtitle">ნამდვილი სახლის სითბო, მონატრებული არომატები და სიყვარულით მომზადებული სადილები — ზუსტად ისე, როგორც დედა ამზადებს.</p>
+                <h1 class="hero-title" id="heroTitle">Твій смак українського дому в Тбілісі 🇺🇦🇬🇪</h1>
+                <p class="hero-subtitle" id="heroSubtitle">Справжнє домашнє тепло, суплідні аромати та з любов’ю приготовані обіди — точно так, як готує мама.</p>
                 <div class="hero-badges">
-                    <span class="badge" id="b1">❤️ სახლის სითბო</span>
-                    <span class="badge" id="b2">🍲 ნატურალური ინგრედიენტები</span>
-                    <span class="badge" id="b3">🚚 სწრაფი მიწოდება</span>
+                    <span class="badge" id="b1">❤️ Домашнє тепло</span>
+                    <span class="badge" id="b2">🍲 Натуральні інгредієнти</span>
+                    <span class="badge" id="b3">🚚 Швидка доставка</span>
                 </div>
             </div>
             <div class="hero-card">
-                <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=600&q=80" alt="უკრაინული ბორშჩი">
-                <p style="margin-top: 8px; font-weight: 700; font-size: 0.85rem;" id="heroImgCaption">ტრადიციული ბორშჩი პამპუშკებით</p>
+                <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=600&q=80" alt="Український борщ">
+                <p style="margin-top: 8px; font-weight: 700; font-size: 0.85rem;" id="heroImgCaption">Традиційний борщ з пампушками</p>
             </div>
         </div>
     </section>
@@ -260,19 +285,19 @@
         <div class="info-grid">
             <div class="info-card">
                 <div class="info-icon">🕒</div>
-                <div class="info-title" id="infoTitle1">სამუშაო საათები</div>
-                <div class="info-sub">11:00 – 20:00 (ყოველდღე)</div>
-                <span class="status-badge" id="statusBadge">🟢 ვიღებთ შეკვეთებს</span>
+                <div class="info-title" id="infoTitle1">Робочі години</div>
+                <div class="info-sub">11:00 – 20:00 (Щодня)</div>
+                <span class="status-badge" id="statusBadge">🟢 Приймаємо замовлення</span>
             </div>
             <div class="info-card">
                 <div class="info-icon">🚚</div>
-                <div class="info-title" id="infoTitle2">მიწოდების ზონა</div>
-                <div class="info-sub" id="infoSub2">მთელი თბილისი (Bolt/Glovo)</div>
+                <div class="info-title" id="infoTitle2">Зона доставки</div>
+                <div class="info-sub" id="infoSub2">Весь Тбілісі (Bolt/Glovo)</div>
             </div>
             <div class="info-card">
                 <div class="info-icon">📦</div>
-                <div class="info-title" id="infoTitle3">შეფუთვა</div>
-                <div class="info-sub" id="infoSub3">ეკოლოგიური, თერმო-კონტეინერები</div>
+                <div class="info-title" id="infoTitle3">Упаковка</div>
+                <div class="info-sub" id="infoSub3">Екологічні термо-контейнери</div>
             </div>
         </div>
     </div>
@@ -280,8 +305,8 @@
     <!-- Story Section -->
     <section class="story-section">
         <div class="container story-box">
-            <h2 class="story-title" id="storyTitle">"საკვები, რომელიც სახლს მოგაგონებს"</h2>
-            <p class="story-text" id="storyText">„Mama Kitchen შეიქმნა იმისათვის, რომ უცხო ქალაქში მყოფ თითოეულ ადამიანს იგრძნოს ოჯახური სიმყუდროვე. ჩვენთვის ეს მხოლოდ სადილი არ არის — ეს არის მოგონებები, ტრადიციები და ზრუნვა, რომელსაც ყოველ კერძში ვდებთ.“</p>
+            <h2 class="story-title" id="storyTitle">"Їжа, що нагадує про дім"</h2>
+            <p class="story-text" id="storyText">«Mama Kitchen створена для того, щоб кожен відчув затишок рідного дому у Тбілісі. Для нас це не просто обіди — це спогади, традиції та турбота у кожній страві.»</p>
         </div>
     </section>
 
@@ -289,16 +314,16 @@
     <section class="menu-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title" id="menuTitle">ამ კვირის მენიუ</h2>
-                <p class="section-desc" id="menuDesc">აირჩიეთ კერძები და გააგზავნეთ შეკვეთა პირდაპირ Telegram-ში</p>
+                <h2 class="section-title" id="menuTitle">Меню на тиждень</h2>
+                <p class="section-desc" id="menuDesc">Обирайте страви та замовляйте прямо в Telegram</p>
             </div>
 
             <!-- Dietary Filters -->
             <div class="dietary-filters">
-                <button class="filter-btn active" onclick="filterDishes('all', this)" id="fAll">ყველა</button>
-                <button class="filter-btn" onclick="filterDishes('meat', this)" id="fMeat">🥩 ხორციანი</button>
-                <button class="filter-btn" onclick="filterDishes('veg', this)" id="fVeg">🌱 ვეგეტარიანული</button>
-                <button class="filter-btn" onclick="filterDishes('sweet', this)" id="fSweet">🍰 ტკბილი</button>
+                <button class="filter-btn active" onclick="filterDishes('all', this)" id="fAll">Все</button>
+                <button class="filter-btn" onclick="filterDishes('meat', this)" id="fMeat">🥩 М'ясні</button>
+                <button class="filter-btn" onclick="filterDishes('veg', this)" id="fVeg">🌱 Вегетаріанські</button>
+                <button class="filter-btn" onclick="filterDishes('sweet', this)" id="fSweet">🍰 Солодке</button>
             </div>
 
             <!-- Menu Grid -->
@@ -307,14 +332,14 @@
                 <div class="dish-card" data-category="meat">
                     <div class="dish-img-wrap">
                         <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=500&q=80" class="dish-img">
-                        <span class="dish-tag">🥩 ხორციანი</span>
+                        <span class="dish-tag" id="tag1">🥩 М'ясні</span>
                     </div>
                     <div class="dish-info">
-                        <h3 class="dish-title" id="d1Title">უკრაინული ბორშჩი</h3>
-                        <p class="dish-desc" id="d1Desc">საქონლის ხორცი, ჭარხალი, კომბოსტო, ახალი არაჟანი და ნივრიანი პამპუშკა.</p>
+                        <h3 class="dish-title" id="d1Title">Український борщ</h3>
+                        <p class="dish-desc" id="d1Desc">Яловичина, буряк, капуста, свіжа сметана та часникова пампушка.</p>
                         <div class="dish-footer">
                             <span class="dish-price">18.00 ₾</span>
-                            <button class="btn-add" id="btn1" onclick="addToCart('უკრაინული ბორშჩი', 18)">+ დამატება</button>
+                            <button class="btn-add" id="btn1" onclick="addToCart('Український борщ', 18)">+ Додати</button>
                         </div>
                     </div>
                 </div>
@@ -323,14 +348,14 @@
                 <div class="dish-card" data-category="veg">
                     <div class="dish-img-wrap">
                         <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=500&q=80" class="dish-img">
-                        <span class="dish-tag">🌱 ვეგეტარიანული</span>
+                        <span class="dish-tag" id="tag2">🌱 Вегетаріанські</span>
                     </div>
                     <div class="dish-info">
-                        <h3 class="dish-title" id="d2Title">ვარენიკები კარტოფილით</h3>
-                        <p class="dish-desc" id="d2Desc">ხელით მოხვეული ცომი, ნაზი კარტოფილის გულით და შემწვარი ხახვით.</p>
+                        <h3 class="dish-title" id="d2Title">Вареники з картоплею</h3>
+                        <p class="dish-desc" id="d2Desc">Ручна ліпка, ніжне картопляне пюре та смажена цибулька.</p>
                         <div class="dish-footer">
                             <span class="dish-price">15.00 ₾</span>
-                            <button class="btn-add" id="btn2" onclick="addToCart('ვარენიკები', 15)">+ დამატება</button>
+                            <button class="btn-add" id="btn2" onclick="addToCart('Вареники з картоплею', 15)">+ Додати</button>
                         </div>
                     </div>
                 </div>
@@ -339,14 +364,14 @@
                 <div class="dish-card" data-category="sweet">
                     <div class="dish-img-wrap">
                         <img src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=500&q=80" class="dish-img">
-                        <span class="dish-tag">🍰 ტკბილი</span>
+                        <span class="dish-tag" id="tag3">🍰 Солодке</span>
                     </div>
                     <div class="dish-info">
-                        <h3 class="dish-title" id="d3Title">სახლის სირნიკები</h3>
-                        <p class="dish-desc" id="d3Desc">ნატურალური ხაჭოს სირნიკები, კენკრის ჯემითა და არაჟნით.</p>
+                        <h3 class="dish-title" id="d3Title">Домашні сирники</h3>
+                        <p class="dish-desc" id="d3Desc">Ніжні сирники з натурального сиру, ягідним джемом та сметаною.</p>
                         <div class="dish-footer">
                             <span class="dish-price">12.00 ₾</span>
-                            <button class="btn-add" id="btn3" onclick="addToCart('სირნიკები', 12)">+ დამატება</button>
+                            <button class="btn-add" id="btn3" onclick="addToCart('Домашні сирники', 12)">+ Додати</button>
                         </div>
                     </div>
                 </div>
@@ -358,36 +383,36 @@
     <section class="faq-section">
         <div class="container" style="max-width: 800px;">
             <div class="section-header">
-                <h2 class="section-title" id="faqHeader">ხშირად დასმული კითხვები</h2>
+                <h2 class="section-title" id="faqHeader">Часті запитання</h2>
             </div>
 
             <div class="faq-item" onclick="toggleFaq(this)">
                 <div class="faq-question">
-                    <span id="q1">როგორ ხდება შეკვეთა და მიწოდება?</span>
+                    <span id="q1">Як зробити замовлення та отримати доставку?</span>
                     <span class="faq-toggle">▼</span>
                 </div>
                 <div class="faq-answer" id="a1">
-                    საიტზე ირჩევთ სასურველ კერძებს, აჭერთ ღილაკს "შეკვეთა Telegram-ში" და შეტყობინება ავტომატურად იგზავნება ჩვენთან. მიწოდება ხორციელდება მთელ თბილისში.
+                    Оберіть страви на сайті, натисніть 'Замовити в Telegram' і готовий текст замовлення відправиться нам. Доставка здійснюється по всьому Тбілісі.
                 </div>
             </div>
 
             <div class="faq-item" onclick="toggleFaq(this)">
                 <div class="faq-question">
-                    <span id="q2">როდისმდე შემიძლია იმავე დღის სადილის შეკვეთა?</span>
+                    <span id="q2">До котрої години можна замовити обід на сьогодні?</span>
                     <span class="faq-toggle">▼</span>
                 </div>
                 <div class="faq-answer" id="a2">
-                    იმავე დღის სადილების შეკვეთა მიიღება 15:00 საათამდე. ასევე შეგიძლიათ გააკეთოთ წინასწარი შეკვეთა მომდევნო დღეებისთვის.
+                    Замовлення день у день приймаються до 15:00. Також ви можете зробити попереднє замовлення на наступні дні.
                 </div>
             </div>
 
             <div class="faq-item" onclick="toggleFaq(this)">
                 <div class="faq-question">
-                    <span id="q3">როგორ ხდება გადახდა?</span>
+                    <span id="q3">Як оплатити?</span>
                     <span class="faq-toggle">▼</span>
                 </div>
                 <div class="faq-answer" id="a3">
-                    გადახდა შესაძლებელია საბანკო ბარათით გადარიცხვით ან ნაღდი ანგარიშსწორებით კურიერთან.
+                    Оплата можлива банківським переказом або готівкою кур'єру.
                 </div>
             </div>
         </div>
@@ -398,26 +423,26 @@
         <div class="cart-info">
             <span class="cart-count" id="cartCount">0</span>
             <div>
-                <div style="font-size: 0.75rem; color: #aaa;" id="cartTotalLabel">ჯამური ღირებულება:</div>
+                <div style="font-size: 0.75rem; color: #aaa;" id="cartTotalLabel">Загальна сума:</div>
                 <div style="font-weight: 800; font-size: 1rem;" id="cartTotal">0.00 ₾</div>
             </div>
         </div>
         <button class="btn-order-telegram" onclick="sendToTelegram()">
-            🚀 <span id="btnOrderText">შეკვეთა Telegram-ში</span>
+            🚀 <span id="btnOrderText">Замовити в Telegram</span>
         </button>
     </div>
 
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p><strong>Mama Kitchen Tbilisi</strong> — უკრაინული სახლის სამზარეულო თბილისში</p>
+            <p><strong>Mama Kitchen Tbilisi</strong> — Українська домашня кухня в Тбілісі</p>
             <p style="margin-top: 4px;">Telegram: @mama_kitchen_tbilisi | Instagram: @mama_kitchen_tbilisi</p>
         </div>
     </footer>
 
     <!-- Script & Intro Timer -->
     <script>
-        // 1.5-Second Intro Splash Timer
+        // Intro Splash Timer (1.5s)
         window.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 const splash = document.getElementById('splashOverlay');
@@ -429,6 +454,28 @@
         });
 
         const translations = {
+            uk: {
+                promoBar: "🎁 Традиційний український компот у подарунок до 1-го замовлення!",
+                heroTitle: "Твій смак українського дому в Тбілісі 🇺🇦🇬🇪",
+                heroSubtitle: "Справжнє домашнє тепло, суплідні аромати та з любов’ю приготовані обіди — точно так, як готує мама.",
+                b1: "❤️ Домашнє тепло", b2: "🍲 Натуральні інгредієнти", b3: "🚚 Швидка доставка",
+                heroImgCaption: "Традиційний борщ з пампушками",
+                infoTitle1: "Робочі години", infoTitle2: "Зона доставки", infoSub2: "Весь Тбілісі (Bolt/Glovo)", infoTitle3: "Упаковка", infoSub3: "Екологічні термо-контейнери",
+                statusBadge: "🟢 Приймаємо замовлення",
+                storyTitle: '"Їжа, що нагадує про дім"',
+                storyText: '«Mama Kitchen створена для того, щоб кожен відчув затишок рідного дому у Тбілісі. Для нас це не просто обіди — це спогади, традиції та турбота у кожній страві.»',
+                menuTitle: "Меню на тиждень", menuDesc: "Обирайте страви та замовляйте прямо в Telegram",
+                fAll: "Все", fMeat: "🥩 М'ясні", fVeg: "🌱 Вегетаріанські", fSweet: "🍰 Солодке",
+                tag1: "🥩 М'ясні", tag2: "🌱 Вегетаріанські", tag3: "🍰 Солодке",
+                d1Title: "Український борщ", d1Desc: "Яловичина, буряк, капуста, свіжа сметана та часникова пампушка.",
+                d2Title: "Вареники з картоплею", d2Desc: "Ручна ліпка, ніжне картопляне пюре та смажена цибулька.",
+                d3Title: "Домашні сирники", d3Desc: "Ніжні сирники з натурального сиру, ягідним джемом та сметаною.",
+                btn: "+ Додати", cartTotalLabel: "Загальна сума:", btnOrderText: "Замовити в Telegram",
+                faqHeader: "Часті запитання",
+                q1: "Як зробити замовлення та отримати доставку?", a1: "Оберіть страви на сайті, натисніть 'Замовити в Telegram' і готовий текст замовлення відправиться нам. Доставка здійснюється по всьому Тбілісі.",
+                q2: "До котрої години можна замовити обід на сьогодні?", a2: "Замовлення день у день приймаються до 15:00. Також ви можете зробити попереднє замовлення на наступні дні.",
+                q3: "Як оплатити?", a3: "Оплата можлива банківським переказом або готівкою кур'єру."
+            },
             ka: {
                 promoBar: "🎁 პირველ შეკვეთაზე საჩუქრად ტრადიციული უკრაინული კომპოტი!",
                 heroTitle: "შენი უკრაინული სახლის გემოები თბილისში 🇺🇦🇬🇪",
@@ -441,6 +488,7 @@
                 storyText: '„Mama Kitchen შეიქმნა იმისათვის, რომ უცხო ქალაქში მყოფ თითოეულ ადამიანს იგრძნოს ოჯახური სიმყუდროვე. ჩვენთვის ეს მხოლოდ სადილი არ არის — ეს არის მოგონებები, ტრადიციები და ზრუნვა, რომელსაც ყოველ კერძში ვდებთ.“',
                 menuTitle: "ამ კვირის მენიუ", menuDesc: "აირჩიეთ კერძები და გააგზავნეთ შეკვეთა პირდაპირ Telegram-ში",
                 fAll: "ყველა", fMeat: "🥩 ხორციანი", fVeg: "🌱 ვეგეტარიანული", fSweet: "🍰 ტკბილი",
+                tag1: "🥩 ხორციანი", tag2: "🌱 ვეგეტარიანული", tag3: "🍰 ტკბილი",
                 d1Title: "უკრაინული ბორშჩი", d1Desc: "საქონლის ხორცი, ჭარხალი, კომბოსტო, ახალი არაჟანი და ნივრიანი პამპუშკა.",
                 d2Title: "ვარენიკები კარტოფილით", d2Desc: "ხელით მოხვეული ცომი, ნაზი კარტოფილის გულით და შემწვარი ხახვით.",
                 d3Title: "სახლის სირნიკები", d3Desc: "ნატურალური ხაჭოს სირნიკები, კენკრის ჯემითა და არაჟნით.",
@@ -462,6 +510,7 @@
                 storyText: '"Mama Kitchen was created to bring family comfort to everyone in Tbilisi. For us, it’s not just food — it’s memories, tradition, and love packed in every meal."',
                 menuTitle: "Weekly Menu", menuDesc: "Select your dishes and order directly via Telegram",
                 fAll: "All", fMeat: "🥩 Meat", fVeg: "🌱 Vegetarian", fSweet: "🍰 Sweet",
+                tag1: "🥩 Meat", tag2: "🌱 Vegetarian", tag3: "🍰 Sweet",
                 d1Title: "Ukrainian Borscht", d1Desc: "Beef, beetroot, cabbage, fresh sour cream, and garlic pampushka.",
                 d2Title: "Vareniki with Potatoes", d2Desc: "Handmade dough stuffed with smooth potato mash and caramelized onions.",
                 d3Title: "Homemade Syrniki", d3Desc: "Cottage cheese pancakes served with berry jam and sour cream.",
@@ -470,27 +519,6 @@
                 q1: "How to order and receive delivery?", a1: "Select your dishes on the site, tap 'Order on Telegram', and the order message will automatically generate.",
                 q2: "Until when can I order same-day lunch?", a2: "Same-day orders are accepted until 15:00.",
                 q3: "How do I pay?", a3: "Payment can be made via bank transfer or cash upon delivery."
-            },
-            uk: {
-                promoBar: "🎁 Традиційний український компот у подарунок до 1-го замовлення!",
-                heroTitle: "Твій смак українського дому в Тбілісі 🇺🇦🇬🇪",
-                heroSubtitle: "Справжнє домашнє тепло, суплідні аромати та з любов’ю приготовані обіди — точно так, як готує мама.",
-                b1: "❤️ Домашнє тепло", b2: "🍲 Натуральні інгредієнти", b3: "🚚 Швидка доставка",
-                heroImgCaption: "Традиційний борщ з пампушками",
-                infoTitle1: "Робочі години", infoTitle2: "Зона доставки", infoSub2: "Весь Тбілісі (Bolt/Glovo)", infoTitle3: "Упаковка", infoSub3: "Екологічні термо-контейнери",
-                statusBadge: "🟢 Приймаємо замовлення",
-                storyTitle: '"Їжа, що нагадує про дім"',
-                storyText: '«Mama Kitchen створена для того, щоб кожен відчув затишок рідного дому у Тбілісі. Для нас це не просто обіди — це спогади, традиції та турбота у кожній страві.»',
-                menuTitle: "Меню на тиждень", menuDesc: "Обирайте страви та замовляйте прямо в Telegram",
-                fAll: "Все", fMeat: "🥩 М'ясні", fVeg: "🌱 Вегетаріанські", fSweet: "🍰 Солодке",
-                d1Title: "Український борщ", d1Desc: "Яловичина, буряк, капуста, свіжа сметана та часникова пампушка.",
-                d2Title: "Вареники з картоплею", d2Desc: "Ручна ліпка, ніжне картопляне пюре та смажена цибулька.",
-                d3Title: "Домашні сирники", d3Desc: "Ніжні сирники з натурального сиру, ягідним джемом та сметаною.",
-                btn: "+ Додати", cartTotalLabel: "Загальна сума:", btnOrderText: "Замовити в Telegram",
-                faqHeader: "Часті запитання",
-                q1: "Як зробити замовлення та отримати доставку?", a1: "Оберіть страви на сайті, натисніть 'Замовити в Telegram' і готовий текст замовлення відправиться нам.",
-                q2: "До котрої години можна замовити обід на сьогодні?", a2: "Замовлення день у день приймаються до 15:00.",
-                q3: "Як оплатити?", a3: "Оплата можлива банківським переказом або готівкою."
             },
             ru: {
                 promoBar: "🎁 Традиционный украинский компот в подарок к 1-му заказу!",
@@ -504,6 +532,7 @@
                 storyText: '«Mama Kitchen создана для того, чтобы каждый почувствовал домашний уют в Тбилиси. Для нас это не просто обеды — это воспоминания, традиции и забота.»',
                 menuTitle: "Меню на неделю", menuDesc: "Выбирайте блюда и заказывайте прямо в Telegram",
                 fAll: "Все", fMeat: "🥩 Мясные", fVeg: "🌱 Вегетарианские", fSweet: "🍰 Сладкое",
+                tag1: "🥩 Мясные", tag2: "🌱 Вегетарианские", tag3: "🍰 Сладкое",
                 d1Title: "Украинский борщ", d1Desc: "Говядина, свекла, капуста, свежая сметана и чесночная пампушка.",
                 d2Title: "Вареники с картофелем", d2Desc: "Ручная лепка, нежное картофельное пюре и жареный лук.",
                 d3Title: "Домашние сырники", d3Desc: "Нежные сырники из натурального творога с ягодным джемом и сметаной.",
@@ -515,7 +544,7 @@
             }
         };
 
-        let currentLang = 'ka';
+        let currentLang = 'uk';
         let cart = [];
 
         function setLanguage(lang, element) {
@@ -545,6 +574,11 @@
             document.getElementById('fMeat').innerText = t.fMeat;
             document.getElementById('fVeg').innerText = t.fVeg;
             document.getElementById('fSweet').innerText = t.fSweet;
+            
+            if (document.getElementById('tag1')) document.getElementById('tag1').innerText = t.tag1;
+            if (document.getElementById('tag2')) document.getElementById('tag2').innerText = t.tag2;
+            if (document.getElementById('tag3')) document.getElementById('tag3').innerText = t.tag3;
+
             document.getElementById('d1Title').innerText = t.d1Title;
             document.getElementById('d1Desc').innerText = t.d1Desc;
             document.getElementById('d2Title').innerText = t.d2Title;
