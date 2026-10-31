@@ -46,6 +46,8 @@
             --radius: 16px;
             --shadow: 0 10px 30px rgba(44, 34, 30, 0.08);
             --accent-green: #2E7D32;
+            --ua-blue: #0057B7;
+            --ua-yellow: #FFD700;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
@@ -68,15 +70,18 @@
 
         .btn-header { background: #229ED9; color: white; padding: 6px 12px; border-radius: 30px; text-decoration: none; font-weight: 700; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
 
-        /* Hero Section */
+        /* Hero Section & Emotional Ukrainian Flag Hook */
         .hero { padding: 32px 0 24px; }
         .hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 24px; align-items: center; }
+        
+        .flag-hook-tag { display: inline-flex; align-items: center; gap: 6px; background: #FFF8E1; border: 1px solid #FFE082; padding: 6px 14px; border-radius: 20px; font-size: 0.82rem; font-weight: 800; color: #5D4037; margin-bottom: 12px; }
+        
         .hero-title { font-size: 2.2rem; line-height: 1.25; font-weight: 800; margin-bottom: 12px; }
         .hero-subtitle { font-size: 1rem; color: var(--text-muted); margin-bottom: 18px; }
         .hero-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
         .badge { background: var(--surface); padding: 6px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; border: 1px solid var(--border); }
-        .hero-card { background: var(--surface); padding: 10px; border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); text-align: center; }
-        .hero-card img { width: 100%; height: 240px; object-fit: cover; border-radius: 12px; }
+        .hero-card { background: var(--surface); padding: 10px; border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); text-align: center; position: relative; }
+        .hero-card img { width: 100%; height: 250px; object-fit: cover; border-radius: 12px; }
 
         /* Delivery & Hours Info Grid */
         .info-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 24px 0; }
@@ -125,7 +130,7 @@
         .faq-item.active .faq-toggle { transform: rotate(180deg); }
         .faq-toggle { transition: transform 0.2s; font-size: 0.75rem; }
 
-        /* Cart Floating Bar - Optimized for Mobile */
+        /* Cart Floating Bar */
         .cart-bar { position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%); width: calc(100% - 32px); max-width: 550px; background: var(--text-dark); color: white; padding: 10px 18px; border-radius: 40px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 10px 25px rgba(0,0,0,0.3); z-index: 1000; }
         .cart-info { display: flex; align-items: center; gap: 10px; }
         .cart-count { background: var(--primary); color: white; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.8rem; }
@@ -133,12 +138,11 @@
 
         footer { text-align: center; padding: 24px 0; color: var(--text-muted); font-size: 0.8rem; }
 
-        /* Responsive Breakpoints */
         @media (max-width: 768px) {
             .hero-grid { grid-template-columns: 1fr; gap: 16px; }
             .hero-title { font-size: 1.65rem; }
             .info-grid { grid-template-columns: 1fr; gap: 8px; }
-            .logo-text { display: none; } /* მობილურზე ტექსტი იმალება, რჩება ლოგო */
+            .logo-text { display: none; }
             .lang-btn { padding: 4px 6px; font-size: 0.7rem; }
         }
     </style>
@@ -159,7 +163,6 @@
             </a>
             
             <div class="header-actions">
-                <!-- Mobile Optimized Language Switcher -->
                 <div class="lang-switcher">
                     <button class="lang-btn active" onclick="setLanguage('ka', this)">GE</button>
                     <button class="lang-btn" onclick="setLanguage('en', this)">EN</button>
@@ -174,12 +177,15 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with Ukrainian Emotional Hook -->
     <section class="hero">
         <div class="container hero-grid">
             <div>
-                <h1 class="hero-title" id="heroTitle">შენი უკრაინული სახლის გემოები თბილისში 🇺🇦🇬🇪</h1>
-                <p class="hero-subtitle" id="heroSubtitle">ნამდვილი სახლის სითბო, მონატრებული არომატები და სიყვარულით მომზადებული სადილები — ზუსტად ისე, როგორც დედა ამზადებს.</p>
+                <div class="flag-hook-tag">
+                    <span>🇺🇦</span> <span id="flagHook">ავთენტური უკრაინული გემო თბილისში</span>
+                </div>
+                <h1 class="hero-title" id="heroTitle">სახლიდან შორს, მაგრამ სახლის გემოთი 🇺🇦🇬🇪</h1>
+                <p class="hero-subtitle" id="heroSubtitle">ნამდვილი სახლის сითბო, მონატრებული არომატები და სიყვარულით მომზადებული სადილები — ზუსტად ისე, როგორც დედა ამზადებს.</p>
                 <div class="hero-badges">
                     <span class="badge" id="b1">❤️ სახლის სითბო</span>
                     <span class="badge" id="b2">🍲 ნატურალური ინგრედიენტები</span>
@@ -215,7 +221,7 @@
         </div>
     </div>
 
-    <!-- Emotional Story Section -->
+    <!-- Story Section -->
     <section class="story-section">
         <div class="container story-box">
             <h2 class="story-title" id="storyTitle">"საკვები, რომელიც სახლს მოგაგონებს"</h2>
@@ -358,7 +364,8 @@
         const translations = {
             ka: {
                 promoBar: "🎁 პირველ შეკვეთაზე საჩუქრად ტრადიციული უკრაინული კომპოტი!",
-                heroTitle: "შენი უკრაინული სახლის გემოები თბილისში 🇺🇦🇬🇪",
+                flagHook: "ავთენტური უკრაინული გემო თბილისში",
+                heroTitle: "სახლიდან შორს, მაგრამ სახლის გემოთი 🇺🇦🇬🇪",
                 heroSubtitle: "ნამდვილი სახლის სითბო, მონატრებული არომატები და სიყვარულით მომზადებული სადილები — ზუსტად ისე, როგორც დედა ამზადებს.",
                 b1: "❤️ სახლის სითბო", b2: "🍲 ნატურალური ინგრედიენტები", b3: "🚚 სწრაფი მიწოდება",
                 heroImgCaption: "ტრადიციული ბორშჩი პამპუშკებით",
@@ -379,7 +386,8 @@
             },
             en: {
                 promoBar: "🎁 Free Traditional Ukrainian Kompot on your 1st order!",
-                heroTitle: "Your Taste of Ukrainian Home in Tbilisi 🇺🇦🇬🇪",
+                flagHook: "Authentic Ukrainian Taste in Tbilisi",
+                heroTitle: "Far From Home, But With The Taste Of Home 🇺🇦🇬🇪",
                 heroSubtitle: "Authentic warmth, cherished flavors, and home-cooked meals prepared with love — just like mom makes.",
                 b1: "❤️ Warmth of Home", b2: "🍲 Natural Ingredients", b3: "🚚 Fast Delivery",
                 heroImgCaption: "Traditional Borscht with Pampushky",
@@ -400,7 +408,8 @@
             },
             uk: {
                 promoBar: "🎁 Традиційний український компот у подарунок до 1-го замовлення!",
-                heroTitle: "Твій смак українського дому в Тбілісі 🇺🇦🇬🇪",
+                flagHook: "Автентичний український смак у Тбілісі",
+                heroTitle: "Далеко від дому, але зі смаком дому 🇺🇦🇬🇪",
                 heroSubtitle: "Справжнє домашнє тепло, суплідні аромати та з любов’ю приготовані обіди — точно так, як готує мама.",
                 b1: "❤️ Домашнє тепло", b2: "🍲 Натуральні інгредієнти", b3: "🚚 Швидка доставка",
                 heroImgCaption: "Традиційний борщ з пампушками",
@@ -421,7 +430,8 @@
             },
             ru: {
                 promoBar: "🎁 Традиционный украинский компот в подарок к 1-му заказу!",
-                heroTitle: "Вкус украинского дома в Тбилиси 🇺🇦🇬🇪",
+                flagHook: "Аутентичный украинский вкус в Тбилиси",
+                heroTitle: "Вдали от дома, но со вкусом дома 🇺🇦🇬🇪",
                 heroSubtitle: "Настоящее домашнее тепло, любимые ароматы и приготовленные с любовью обеды — прямо как у мамы.",
                 b1: "❤️ Домашнее тепло", b2: "🍲 Натуральные ингредиенты", b3: "🚚 Быстрая доставка",
                 heroImgCaption: "Традиционный борщ с пампушками",
@@ -452,6 +462,7 @@
 
             const t = translations[lang];
             document.getElementById('promoBar').innerText = t.promoBar;
+            document.getElementById('flagHook').innerText = t.flagHook;
             document.getElementById('heroTitle').innerText = t.heroTitle;
             document.getElementById('heroSubtitle').innerText = t.heroSubtitle;
             document.getElementById('b1').innerText = t.b1;
