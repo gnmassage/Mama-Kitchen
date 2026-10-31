@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mama Kitchen Tbilisi | უკრაინული სახლის სამზარეულო</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #C8322B;
+            --primary-hover: #A6241E;
+            --bg-cream: #FAF6F0;
+            --surface: #FFFFFF;
+            --text-dark: #2C221E;
+            --text-muted: #6B5E57;
+            --accent-green: #2E7D32;
+            --border: #E8E0D5;
+            --radius: 16px;
+            --shadow: 0 10px 30px rgba(44, 34, 30, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding-bottom: 90px;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 800;
+            font-size: 1.2rem;
+        }
+
+        .logo-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .btn-header {
+            background: #229ED9;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .btn-header:hover {
+            background: #1C8ADB;
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 60px 0 40px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hero-title {
+            font-size: 2.6rem;
+            line-height: 1.2;
+            font-weight: 800;
+            margin-bottom: 16px;
+            color: var(--text-dark);
+        }
+
+        .hero-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        .hero-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+
+        .badge {
+            background: var(--surface);
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .hero-image-card {
+            background: var(--surface);
+            padding: 12px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .hero-image-card img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        /* Menu Section */
+        .menu-section {
+            padding: 40px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 36px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .section-desc {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        .menu-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+        }
+
+        .tab-btn {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 700;
+            cursor: pointer;
+            color: var(--text-muted);
+            transition: all 0.2s;
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .dish-card {
+            background: var(--surface);
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s;
+        }
+
+        .dish-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .dish-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .dish-info {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .dish-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .dish-desc {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            flex-grow: 1;
+        }
+
+        .dish-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+        }
+
+        .dish-price {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .btn-add {
+            background: var(--bg-cream);
+            color: var(--text-dark);
+            border: 1px solid var(--border);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-add:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* Features/Why Us */
+        .features {
+            padding: 50px 0;
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            margin: 40px 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 2.2rem;
+            margin-bottom: 12px;
+        }
+
+        .feature-title {
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .feature-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Cart Floating Bar */
+        .cart-bar {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 40px);
+            max-width: 600px;
+            background: var(--text-dark);
+            color: white;
+            padding: 14px 24px;
+            border-radius: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+            z-index: 1000;
+        }
+
+        .cart-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .cart-count {
+            background: var(--primary);
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 0.85rem;
+        }
+
+        .btn-order-telegram {
+            background: #229ED9;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.2s;
+        }
+
+        .btn-order-telegram:hover {
+            background: #1C8ADB;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: var(--text-muted);
+            font-size: 0.88rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .nav-links {
+                display: none;
+            }
+            .hero-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo">
+                <div class="logo-avatar">👩‍🍳</div>
+                <span>Mama Kitchen</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#menu">მენიუ</a></li>
+                <li><a href="#why-us">უპირატესობები</a></li>
+                <li><a href="#about">ჩვენ შესახებ</a></li>
+            </ul>
+            <a href="https://t.me/mama_kitchen_tbilisi" target="_blank" class="btn-header">
+                💬 Telegram ჩატი
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-grid">
+            <div>
+                <h1 class="hero-title">ნამდვილი უკრაინული სახლის კერძები თბილისში 🇺🇦🇬🇪</h1>
+                <p class="hero-subtitle">ყოველდღე ახალი, სიყვარულით დამზადებული სადილები — ზუსტად ისე, როგორც დედა ამზადებს.</p>
+                <div class="hero-badges">
+                    <span class="badge">🍲 ნატურალური ინგრედიენტები</span>
+                    <span class="badge">🚚 სწრაფი მიწოდება</span>
+                    <span class="badge">📦 ეკო შეფუთვა</span>
+                </div>
+            </div>
+            <div class="hero-image-card">
+                <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=600&q=80" alt="უკრაინული ბორშჩი">
+                <p style="margin-top: 10px; font-weight: 700; font-size: 0.9rem;">ტრადიციული ბორშჩი პამპუშკებით</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu-section" id="menu">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">ამ კვირის მენიუ</h2>
+                <p class="section-desc">აირჩიეთ კერძები და გააგზავნეთ შეკვეთა პირდაპირ Telegram-ში</p>
+            </div>
+
+            <!-- Categories Tabs -->
+            <div class="menu-tabs">
+                <button class="tab-btn active">ყველა კერძი</button>
+                <button class="tab-btn">სუპები</button>
+                <button class="tab-btn">მთავარი კერძები</button>
+                <button class="tab-btn">დესერტები</button>
+            </div>
+
+            <!-- Menu Grid -->
+            <div class="menu-grid">
+                <!-- Dish 1 -->
+                <div class="dish-card">
+                    <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=500&q=80" alt="ბორშჩი" class="dish-img">
+                    <div class="dish-info">
+                        <h3 class="dish-title">უკრაინული ბორშჩი</h3>
+                        <p class="dish-desc">საქონლის ხორცი, ჭარხალი, კომბოსტო, ახალი არაჟანი და ნივრიანი პამპუშკა.</p>
+                        <div class="dish-footer">
+                            <span class="dish-price">18.00 ₾</span>
+                            <button class="btn-add" onclick="addToCart('უკრაინული ბორშჩი', 18)">+ დამატება</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dish 2 -->
+                <div class="dish-card">
+                    <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=500&q=80" alt="ვარენიკები" class="dish-img">
+                    <div class="dish-info">
+                        <h3 class="dish-title">ვარენიკები კარტოფილით</h3>
+                        <p class="dish-desc">ხელით მოხვეული ხორბლის ცომი, ნაზი კარტოფილის გულით და შემწვარი ხახვით.</p>
+                        <div class="dish-footer">
+                            <span class="dish-price">15.00 ₾</span>
+                            <button class="btn-add" onclick="addToCart('ვარენიკები', 15)">+ დამატება</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dish 3 -->
+                <div class="dish-card">
+                    <img src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=500&q=80" alt="სირნიკები" class="dish-img">
+                    <div class="dish-info">
+                        <h3 class="dish-title">სახლის სირნიკები</h3>
+                        <p class="dish-desc">ნატურალური ხაჭოს სირნიკები, კენკრის ჯემითა და არაჟნით.</p>
+                        <div class="dish-footer">
+                            <span class="dish-price">12.00 ₾</span>
+                            <button class="btn-add" onclick="addToCart('სირნიკები', 12)">+ დამატება</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features" id="why-us">
+        <div class="container features-grid">
+            <div>
+                <div class="feature-icon">🌿</div>
+                <h3 class="feature-title">მხოლოდ ახალი პროდუქტი</h3>
+                <p class="feature-desc">არანაირი ნახევარფაბრიკატები. ვამზადებთ ყოველ დილით შეკვეთების მიხედვით.</p>
+            </div>
+            <div>
+                <div class="feature-icon">❤️</div>
+                <h3 class="feature-title">ოჯახური რეცეპტები</h3>
+                <p class="feature-desc">ტრადიციული უკრაინული გემოები, რომლებიც სახლის სითბოს მოგაგონებთ.</p>
+            </div>
+            <div>
+                <div class="feature-icon">📦</div>
+                <h3 class="feature-title">უსაფრთხო შეფუთვა</h3>
+                <p class="feature-desc">ეკოლოგიურად სუფთა კონტეინერები, რომლებიც იდეალურად ინახავს ტემპერატურას.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Order Cart -->
+    <div class="cart-bar" id="cartBar" style="display: none;">
+        <div class="cart-info">
+            <span class="cart-count" id="cartCount">0</span>
+            <div>
+                <div style="font-size: 0.8rem; color: #aaa;">ჯამური ღირებულება:</div>
+                <div style="font-weight: 800; font-size: 1.1rem;" id="cartTotal">0.00 ₾</div>
+            </div>
+        </div>
+        <button class="btn-order-telegram" onclick="sendToTelegram()">
+            🚀 შეკვეთა Telegram-ში
+        </button>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p><strong>Mama Kitchen Tbilisi</strong> — უკრაინული სახლის სამზარეულო თბილისში</p>
+            <p style="margin-top: 5px;">მიწოდების სერვისი მთელ თბილისში | Telegram: @mama_kitchen_tbilisi</p>
+        </div>
+    </footer>
+
+    <script>
+        let cart = [];
+
+        function addToCart(title, price) {
+            cart.push({ title, price });
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartBar = document.getElementById('cartBar');
+            const cartCount = document.getElementById('cartCount');
+            const cartTotal = document.getElementById('cartTotal');
+
+            if (cart.length > 0) {
+                cartBar.style.display = 'flex';
+                cartCount.innerText = cart.length;
+                const total = cart.reduce((sum, item) => sum + item.price, 0);
+                cartTotal.innerText = total.toFixed(2) + ' ₾';
+            } else {
+                cartBar.style.display = 'none';
+            }
+        }
+
+        function sendToTelegram() {
+            if (cart.length === 0) return;
+
+            let text = "გამარჯობა, Mama Kitchen! 👋\nმინდა შევუკვეთო:\n\n";
+            let total = 0;
+
+            cart.forEach((item, index) => {
+                text += `${index + 1}. ${item.title} - ${item.price} ₾\n`;
+                total += item.price;
+            });
+
+            text += `\n💰 სულ: ${total.toFixed(2)} ₾`;
+            text += "\n\nგთხოვთ მიმითითოთ მიწოდების დეტალები!";
+
+            const telegramUrl = `https://t.me/mama_kitchen_tbilisi?text=${encodeURIComponent(text)}`;
+            window.open(telegramUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
