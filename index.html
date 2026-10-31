@@ -21,7 +21,7 @@
       "@context": "https://schema.org",
       "@type": "Restaurant",
       "name": "Mama Kitchen Tbilisi",
-      "image": "borscht.jpg",
+      "image": "https://images.unsplash.com/photo-1547592166-23ac45744acd",
       "servesCuisine": ["Ukrainian", "Home Food"],
       "priceRange": "$$",
       "address": {
@@ -52,6 +52,52 @@
         body { background-color: var(--bg-cream); color: var(--text-dark); line-height: 1.6; padding-bottom: 100px; -webkit-tap-highlight-color: transparent; }
         .container { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
 
+        /* 1.5-Second Ukrainian Splash Intro Overlay */
+        #splashOverlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0057B7 0%, #004085 50%, #111111 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            z-index: 9999;
+            padding: 24px;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+
+        .splash-flag {
+            font-size: 4rem;
+            margin-bottom: 16px;
+            animation: pulseFlag 1.2s infinite alternate;
+        }
+
+        .splash-hook-uk {
+            font-size: 1.6rem;
+            font-weight: 800;
+            max-width: 600px;
+            line-height: 1.3;
+            color: #FFD700; /* უკრაინის დროშის ყვითელი */
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            margin-bottom: 8px;
+        }
+
+        .splash-sub {
+            font-size: 0.95rem;
+            color: #E0E0E0;
+            font-weight: 500;
+        }
+
+        @keyframes pulseFlag {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+
         /* Promo Bar */
         .promo-bar { background: var(--primary); color: white; text-align: center; padding: 8px 12px; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.2px; }
 
@@ -71,15 +117,12 @@
         /* Hero */
         .hero { padding: 32px 0 24px; }
         .hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 24px; align-items: center; }
-        
-        .flag-hook-tag { display: inline-flex; align-items: center; gap: 6px; background: #FFF8E1; border: 1px solid #FFE082; padding: 6px 14px; border-radius: 20px; font-size: 0.82rem; font-weight: 800; color: #5D4037; margin-bottom: 12px; }
-        
         .hero-title { font-size: 2.2rem; line-height: 1.25; font-weight: 800; margin-bottom: 12px; }
         .hero-subtitle { font-size: 1rem; color: var(--text-muted); margin-bottom: 18px; }
         .hero-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
         .badge { background: var(--surface); padding: 6px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; border: 1px solid var(--border); }
         .hero-card { background: var(--surface); padding: 10px; border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); text-align: center; }
-        .hero-card img { width: 100%; height: 250px; object-fit: cover; border-radius: 12px; }
+        .hero-card img { width: 100%; height: 260px; object-fit: cover; border-radius: 12px; }
 
         /* Delivery Grid */
         .info-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 24px 0; }
@@ -142,10 +185,18 @@
             .info-grid { grid-template-columns: 1fr; gap: 8px; }
             .logo-text { display: none; }
             .lang-btn { padding: 4px 6px; font-size: 0.7rem; }
+            .splash-hook-uk { font-size: 1.25rem; }
         }
     </style>
 </head>
 <body>
+
+    <!-- 1.5-Second Ukrainian Intro Splash Screen -->
+    <div id="splashOverlay">
+        <div class="splash-flag">🇺🇦</div>
+        <div class="splash-hook-uk">«Смак родинного тепла, що об'єднує серця в Тбілісі»</div>
+        <div class="splash-sub">Mama Kitchen Tbilisi</div>
+    </div>
 
     <!-- Promo Banner -->
     <div class="promo-bar" id="promoBar">
@@ -179,10 +230,7 @@
     <section class="hero">
         <div class="container hero-grid">
             <div>
-                <div class="flag-hook-tag">
-                    <span>🇺🇦</span> <span id="flagHook">ავთენტური უკრაინული გემო თბილისში</span>
-                </div>
-                <h1 class="hero-title" id="heroTitle">სახლიდან შორს, მაგრამ სახლის გემოთი 🇺🇦🇬🇪</h1>
+                <h1 class="hero-title" id="heroTitle">შენი უკრაინული სახლის გემოები თბილისში 🇺🇦🇬🇪</h1>
                 <p class="hero-subtitle" id="heroSubtitle">ნამდვილი სახლის სითბო, მონატრებული არომატები და სიყვარულით მომზადებული სადილები — ზუსტად ისე, როგორც დედა ამზადებს.</p>
                 <div class="hero-badges">
                     <span class="badge" id="b1">❤️ სახლის სითბო</span>
@@ -191,8 +239,8 @@
                 </div>
             </div>
             <div class="hero-card">
-                <!-- ატვირთული ფოტოს სახელი: borscht.jpg -->
-                <img src="borscht.jpg" alt="უკრაინული ბორშჩი">
+                <!-- პირველანდელი მაღალი ხარისხის ბორშჩის ფოტო -->
+                <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=600&q=80" alt="უკრაინული ბორშჩი">
                 <p style="margin-top: 8px; font-weight: 700; font-size: 0.85rem;" id="heroImgCaption">ტრადიციული ბორშჩი პამპუშკებით</p>
             </div>
         </div>
@@ -249,7 +297,7 @@
                 <!-- Dish 1 -->
                 <div class="dish-card" data-category="meat">
                     <div class="dish-img-wrap">
-                        <img src="borscht.jpg" class="dish-img">
+                        <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=500&q=80" class="dish-img">
                         <span class="dish-tag">🥩 ხორციანი</span>
                     </div>
                     <div class="dish-info">
@@ -358,13 +406,23 @@
         </div>
     </footer>
 
-    <!-- Script -->
+    <!-- Script & Intro Timer -->
     <script>
+        // 1.5-Second Intro Splash Timer
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                const splash = document.getElementById('splashOverlay');
+                if (splash) {
+                    splash.style.opacity = '0';
+                    splash.style.visibility = 'hidden';
+                }
+            }, 1500); // 1.5 წამი
+        });
+
         const translations = {
             ka: {
                 promoBar: "🎁 პირველ შეკვეთაზე საჩუქრად ტრადიციული უკრაინული კომპოტი!",
-                flagHook: "ავთენტური უკრაინული გემო თბილისში",
-                heroTitle: "სახლიდან შორს, მაგრამ სახლის გემოთი 🇺🇦🇬🇪",
+                heroTitle: "შენი უკრაინული სახლის გემოები თბილისში 🇺🇦🇬🇪",
                 heroSubtitle: "ნამდვილი სახლის სითბო, მონატრებული არომატები და სიყვარულით მომზადებული სადილები — ზუსტად ისე, როგორც დედა ამზადებს.",
                 b1: "❤️ სახლის სითბო", b2: "🍲 ნატურალური ინგრედიენტები", b3: "🚚 სწრაფი მიწოდება",
                 heroImgCaption: "ტრადიციული ბორშჩი პამპუშკებით",
@@ -385,8 +443,7 @@
             },
             en: {
                 promoBar: "🎁 Free Traditional Ukrainian Kompot on your 1st order!",
-                flagHook: "Authentic Ukrainian Taste in Tbilisi",
-                heroTitle: "Far From Home, But With The Taste Of Home 🇺🇦🇬🇪",
+                heroTitle: "Your Taste of Ukrainian Home in Tbilisi 🇺🇦🇬🇪",
                 heroSubtitle: "Authentic warmth, cherished flavors, and home-cooked meals prepared with love — just like mom makes.",
                 b1: "❤️ Warmth of Home", b2: "🍲 Natural Ingredients", b3: "🚚 Fast Delivery",
                 heroImgCaption: "Traditional Borscht with Pampushky",
@@ -407,8 +464,7 @@
             },
             uk: {
                 promoBar: "🎁 Традиційний український компот у подарунок до 1-го замовлення!",
-                flagHook: "Автентичний український смак у Тбілісі",
-                heroTitle: "Далеко від дому, але зі смаком дому 🇺🇦🇬🇪",
+                heroTitle: "Твій смак українського дому в Тбілісі 🇺🇦🇬🇪",
                 heroSubtitle: "Справжнє домашнє тепло, суплідні аромати та з любов’ю приготовані обіди — точно так, як готує мама.",
                 b1: "❤️ Домашнє тепло", b2: "🍲 Натуральні інгредієнти", b3: "🚚 Швидка доставка",
                 heroImgCaption: "Традиційний борщ з пампушками",
@@ -429,8 +485,7 @@
             },
             ru: {
                 promoBar: "🎁 Традиционный украинский компот в подарок к 1-му заказу!",
-                flagHook: "Аутентичный украинский вкус в Тбилиси",
-                heroTitle: "Вдали от дома, но со вкусом дома 🇺🇦🇬🇪",
+                heroTitle: "Вкус украинского дома в Тбилиси 🇺🇦🇬🇪",
                 heroSubtitle: "Настоящее домашнее тепло, любимые ароматы и приготовленные с любовью обеды — прямо как у мамы.",
                 b1: "❤️ Домашнее тепло", b2: "🍲 Натуральные ингредиенты", b3: "🚚 Быстрая доставка",
                 heroImgCaption: "Традиционный борщ с пампушками",
@@ -461,7 +516,6 @@
 
             const t = translations[lang];
             document.getElementById('promoBar').innerText = t.promoBar;
-            document.getElementById('flagHook').innerText = t.flagHook;
             document.getElementById('heroTitle').innerText = t.heroTitle;
             document.getElementById('heroSubtitle').innerText = t.heroSubtitle;
             document.getElementById('b1').innerText = t.b1;
